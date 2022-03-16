@@ -47,6 +47,11 @@ contract WeathlPurchase is ERC721, ERC721Enumerable, ERC721Burnable, AccessContr
         return ownedTokens[_poolround][owner];
     }
 
+        //Get Token Percentage
+     function GetTokenPercentage(string memory token, uint256 percentage) public returns (uint256){
+        return (purchases[tokenId][0].percentage);
+    }
+
     function getPurchase(uint256 tokenId) public view onlyRole(MINTER_ROLE) returns (address, uint256, string memory, uint256) {
         return (purchases[tokenId][0].owner, purchases[tokenId][0].amount, purchases[tokenId][0].token, purchases[tokenId][0].percentage);
         // return purchases[tokenId][0];

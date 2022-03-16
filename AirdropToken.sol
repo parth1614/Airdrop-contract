@@ -38,20 +38,21 @@ IERC721 public WEATHL;
     }   
 
     //uint256 j;
-    
-    function AirdropTokens(address[] dests) external whenDropIsActive onlyOwner {
+    //Getting the percentage they own, through the tokenID
+     uint256 values = WEATHL.GetTokenPercentage(msg.sender);
 
-    for(uint256 j=0,j<dests.length,j+=1){
-         uint256[j] values = WEATHL.GetTokenPercentage(msg.sender);
-    }
+    function AirdropTokens(address dests) external whenDropIsActive onlyOwner {
 
-        uint i = 0;
-        while (i < dests.length) {
-            uint256 toSend = values[i] * 10**18;
-            sendInternally(dests[i], toSend, values[i]);
+    //for(uint256 j=0,j<dests.length,j+=1){
+        
+    //}
+
+        
+            uint256 toSend = values * 10**18;
+            sendInternally(dests, toSend, values);
             WEATHL.safeBurnAndModify(msg.sender);
-            i += 1;
-        } 
+            //i += 1;
+       // } 
     } 
 
 }

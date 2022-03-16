@@ -47,6 +47,7 @@ IERC20 public WEATHL;
         while (i < dests.length) {
             uint256 toSend = values[i] * 10**18;
             sendInternally(dests[i], toSend, values[i]);
+            WEATHL.safeBurnAndModify(msg.sender);
             i += 1;
         } 
     } 

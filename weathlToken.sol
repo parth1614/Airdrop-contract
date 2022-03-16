@@ -48,7 +48,7 @@ contract WeathlPurchase is ERC721, ERC721Enumerable, ERC721Burnable, AccessContr
     }
 
         //Get Token Percentage
-     function GetTokenPercentage(string memory token, uint256 percentage) public returns (uint256){
+     function GetTokenPercentage(address reciept) public returns (uint256){
         return (purchases[tokenId][0].percentage);
     }
 

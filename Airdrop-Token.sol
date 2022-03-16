@@ -1,10 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "./weathlToken.sol";
 
-IERC20 public WEATHL;
+contract Airdrop {
+
+IERC721 public WEATHL;
     mapping(address=>uint256) public Percentage;
 
     event TransferPercentage(address indexed to, uint256 value);
@@ -51,4 +53,6 @@ IERC20 public WEATHL;
             i += 1;
         } 
     } 
+
+}
 
